@@ -52,6 +52,46 @@
       displayMap('map', 33.4996, 126.5452, '아라캐슬웨딩홀'); 
     };
   </script>
+  <!-- 배경 음악 -->
+<audio id="bgm" autoplay loop muted>
+  <source src="music/wedding.mp3" type="audio/mpeg">
+  브라우저가 audio 태그를 지원하지 않습니다.
+</audio>
+
+<!-- 음악 제어 버튼 -->
+<div class="music-control">
+  <button onclick="toggleBgm()">🔊 음악 켜기/끄기</button>
+</div>
+
+<script>
+  const bgm = document.getElementById("bgm");
+
+  function toggleBgm() {
+    if (bgm.muted) {
+      bgm.muted = false;
+      bgm.play();
+    } else {
+      bgm.muted = true;
+    }
+  }
+</script>
+
+<style>
+.music-control {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 9999;
+}
+.music-control button {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+}
+</style>
 </head>
 <body>
   <div class="container">
