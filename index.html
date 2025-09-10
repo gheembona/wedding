@@ -83,12 +83,47 @@
 
   <!-- 오시는 길 섹션 -->
   <section class="location">
-    <h2>오시는 길</h2>
-    <p>아라캐슬웨딩홀 2층 공작실<br>제주 제주시 중앙로 504</p>
-    <iframe src="https://map.kakao.com/link/map/아라캐슬웨딩홀,33.5097711,126.5278662" 
-            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
-    </iframe>
-  </section>
+  <h2>오시는 길</h2>
+  <p>아라캐슬 2층 공작실<br>제주 제주시 중앙로 504 아라캐슬웨딩홀</p>
+
+  <!-- 카카오 지도 -->
+  <div id="map"></div>
+
+  <!-- 네비 버튼 -->
+  <div class="nav-buttons">
+    <a href="tmap://route?goalx=126.5452&goaly=33.4996&goalname=아라캐슬웨딩홀">
+      <button>🚘 티맵</button>
+    </a>
+    <a href="kakaonavi://navigate?name=아라캐슬웨딩홀&x=126.5452&y=33.4996&coord_type=wgs84">
+      <button>🚖 카카오내비</button>
+    </a>
+    <a href="nmap://route/car?dlat=33.4996&dlng=126.5452&dname=아라캐슬웨딩홀">
+      <button>🗺️ 네이버지도</button>
+    </a>
+    <a href="kakaomap://route?ep=33.4996,126.5452&by=CAR">
+      <button>📍 카카오맵</button>
+    </a>
+  </div>
+</section>
+
+<!-- 카카오맵 JS SDK -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=여기에_APPKEY"></script>
+<script>
+  var mapContainer = document.getElementById('map');
+  var mapOption = { 
+      center: new kakao.maps.LatLng(33.4996, 126.5452), // 아라캐슬웨딩홀 좌표
+      level: 3 // 확대 레벨 (낮을수록 확대)
+  };
+
+  var map = new kakao.maps.Map(mapContainer, mapOption);
+
+  // 마커 표시
+  var marker = new kakao.maps.Marker({ 
+      position: new kakao.maps.LatLng(33.4996, 126.5452) 
+  }); 
+  marker.setMap(map);
+</script>
+
 
   <!-- 축의금 송금 섹션 -->
   <section class="gift">
