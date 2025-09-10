@@ -143,14 +143,14 @@ button:hover {
 	background-size:3.125rem;
 }
 .location-section .link .tmap:after{
-	background-image: url("/new_m/mcard/images/common/location_tmap2.png");
+	background-image: url("/images/location_tmap2.png");
 }
 .location-section .link .kakaonavi:after{
-	background-image: url("/new_m/mcard/images/common/location_kakaonavi.png");
+	background-image: url("/images/location_kakaonavi.png");
 }
 .location-section .link .navermap:after{
-	background-image: url("/new_m/mcard/images/common/location_navermap.png");
+	background-image: url("/images/location_navermap.png");
 }
 .location-section .link .kakaomap:after{
-	background-image: url("/new_m/mcard/images/common/location_kakaomap.png");
+	background-image: url("/images/location_kakaomap.png");
 }
