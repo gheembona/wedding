@@ -14,6 +14,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+  <!-- 카카오맵 JS SDK -->
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=67f0b37dbb6dace657c0757e578ee937"></script>
+<script>
+  var mapContainer = document.getElementById('map');
+  var mapOption = { 
+      center: new kakao.maps.LatLng(33.4996, 126.5452), // 아라캐슬웨딩홀 좌표
+      level: 3 // 확대 레벨 (낮을수록 확대)
+  };
+
+  var map = new kakao.maps.Map(mapContainer, mapOption);
+
+  // 마커 표시
+  var marker = new kakao.maps.Marker({ 
+      position: new kakao.maps.LatLng(33.4996, 126.5452) 
+  }); 
+  marker.setMap(map);
+</script>
 </head>
 <body>
 
@@ -106,23 +124,7 @@
   </div>
 </section>
 
-<!-- 카카오맵 JS SDK -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=여기에_APPKEY"></script>
-<script>
-  var mapContainer = document.getElementById('map');
-  var mapOption = { 
-      center: new kakao.maps.LatLng(33.4996, 126.5452), // 아라캐슬웨딩홀 좌표
-      level: 3 // 확대 레벨 (낮을수록 확대)
-  };
 
-  var map = new kakao.maps.Map(mapContainer, mapOption);
-
-  // 마커 표시
-  var marker = new kakao.maps.Marker({ 
-      position: new kakao.maps.LatLng(33.4996, 126.5452) 
-  }); 
-  marker.setMap(map);
-</script>
 
 
   <!-- 축의금 송금 섹션 -->
