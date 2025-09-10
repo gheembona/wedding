@@ -340,6 +340,7 @@ function closeModal() {
   </script>
 
 <script>
+  console.log(window.location.origin);
   function displayMap(locationCd, posX, posY, fairName) {
     var container = document.getElementById(locationCd);
     var options = { 
@@ -375,7 +376,7 @@ function closeModal() {
 
   window.onload = function() {
     displayMap('mapDiv', 33.4996, 126.5452, '아라캐슬웨딩홀'); 
-    console.log(window.location.origin);
+    
   };
   function copyLink() {
     navigator.clipboard.writeText(window.location.href).then(() => {
@@ -419,4 +420,5 @@ function closeModal() {
   
 </body>
 </html>
+
 
