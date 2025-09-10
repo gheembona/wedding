@@ -16,50 +16,47 @@
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 
   <!-- 카카오맵 JS SDK -->
-  <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=67f0b37dbb6dace657c0757e578ee937"></script>
-  <script charset="UTF-8" src="https://t1.daumcdn.net/mapjsapi/js/main/4.4.19/kakao.js"></script>
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=67f0b37dbb6dace657c0757e578ee937"></script>
+
 <script>
   function displayMap(locationCd, posX, posY, fairName) {
-	var container = document.getElementById(locationCd);
-	var options = { //지도를 생성할 때 필요한 기본 옵션
-		center : new daum.maps.LatLng(posX, posY), //지도의 중심좌표.
-		level : 3
-	//지도의 레벨(확대, 축소 정도)
-	};
-	var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
+    var container = document.getElementById(locationCd);
+    var options = { 
+      center : new kakao.maps.LatLng(posX, posY), 
+      level : 3
+    };
+    var map = new kakao.maps.Map(container, options);
 
-	var imgUrl = 'https://t1.daumcdn.net/localimg/localimages/07/2018/pc/map/marker_map01.png'
-	var imgSize = new daum.maps.Size(37, 41);
-	var markerImage = new daum.maps.MarkerImage(imgUrl, imgSize);
-	var markerPosition = new daum.maps.LatLng(posX, posY); // 마커가 표시될 위치
-	var marker = new daum.maps.Marker({ // 마커를 생성
-		position : markerPosition,
-		//clickable: true,
-		image : markerImage
-	});
+    var imgUrl = 'https://t1.daumcdn.net/localimg/localimages/07/2018/pc/map/marker_map01.png';
+    var imgSize = new kakao.maps.Size(37, 41);
+    var markerImage = new kakao.maps.MarkerImage(imgUrl, imgSize);
+    var markerPosition = new kakao.maps.LatLng(posX, posY); 
 
-	marker.setMap(map);// 마커 생성
+    var marker = new kakao.maps.Marker({ 
+      position : markerPosition,
+      image : markerImage
+    });
+    marker.setMap(map);
 
-	var overlayContent = '<div class="customoverlay">'
-			+ '<a target="_blank" href="https://map.daum.net/link/map/'+ fairName +','+posX+','+posY+'">'
-			+ '<span class="title">' + fairName + '</span></a>'
-			+ '</div>';
+    // 간단한 커스텀 오버레이
+    var overlayContent = '<div class="customoverlay">'
+      + '<a target="_blank" href="https://map.kakao.com/link/map/'+ fairName +','+posX+','+posY+'">'
+      + '<span class="title">' + fairName + '</span></a>'
+      + '</div>';
 
-	var overlayPosition = new daum.maps.LatLng(posX, posY);
-	var customOverlay = new daum.maps.CustomOverlay({
-		map : map,
-		position : overlayPosition,
-		content : overlayContent,
-		yAnchor : 1
-	});
-}
+    var overlayPosition = new kakao.maps.LatLng(posX, posY);
+    var customOverlay = new kakao.maps.CustomOverlay({
+      map : map,
+      position : overlayPosition,
+      content : overlayContent,
+      yAnchor : 1
+    });
+  }
 
-$(document).ready(function () {
-	// 오시는 길
-	displayMap('map', 33.4996, 126.5452, '아라캐슬웨딩홀');	
+  // 오시는 길
+  displayMap('map', 33.4996, 126.5452, '아라캐슬웨딩홀'); 
+</script>
 
-});
-  
 
 </script>
 </head>
