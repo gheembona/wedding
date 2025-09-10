@@ -15,7 +15,7 @@
   <!-- 카카오맵 JS SDK -->
   <script type="text/javascript"
   src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=67f0b37dbb6dace657c0757e578ee937"
-  onload="displayMap('map', 33.4996, 126.5452, '아라캐슬웨딩홀')">
+  onload="displayMap('mapDiv', 33.4996, 126.5452, '아라캐슬웨딩홀')">
 </script>
 
   <script>
@@ -53,7 +53,7 @@
     }
 
     window.onload = function() {
-      displayMap('map', 33.4996, 126.5452, '아라캐슬웨딩홀'); 
+      displayMap('mapDiv', 33.4996, 126.5452, '아라캐슬웨딩홀'); 
     };
   </script>
   <!-- 배경 음악 -->
@@ -237,7 +237,7 @@
       <h2>오시는 길</h2>
       <p>아라캐슬 2층 공작실<br>제주 제주시 중앙로 504 아라캐슬웨딩홀</p>
 
-      <div id="map"></div>
+      <div id="mapDiv"></div>
 
       <div class="nav-buttons">
         <div class="link">
@@ -419,4 +419,3 @@ function closeModal() {
 
 </body>
 </html>
-
