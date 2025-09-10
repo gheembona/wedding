@@ -139,18 +139,14 @@ $(document).ready(function () {
 
   <!-- 네비 버튼 -->
   <div class="nav-buttons">
-    <a href="tmap://route?goalx=126.5452&goaly=33.4996&goalname=아라캐슬웨딩홀">
-      <button>🚘 티맵</button>
-    </a>
-    <a href="kakaonavi://navigate?name=아라캐슬웨딩홀&x=126.5452&y=33.4996&coord_type=wgs84">
-      <button>🚖 카카오내비</button>
-    </a>
-    <a href="nmap://route/car?dlat=33.4996&dlng=126.5452&dname=아라캐슬웨딩홀">
-      <button>🗺️ 네이버지도</button>
-    </a>
-    <a href="kakaomap://route?ep=33.4996,126.5452&by=CAR">
-      <button>📍 카카오맵</button>
-    </a>
+    <div class="link" >
+	    <ul>
+	        <li><a href="tmap://route?goalx=126.5452&goaly=33.4996&goalname=아라캐슬웨딩홀" class="tmap">티맵</a></li>
+	        <li><a href="kakaonavi://navigate?name=아라캐슬웨딩홀&x=126.5452&y=33.4996&coord_type=wgs84" class="kakaonavi">카카오내비</a></li>
+	        <li><a href="nmap://route/car?dlat=33.4996&dlng=126.5452&dname=아라캐슬웨딩홀"class="navermap" >네이버지도</a></li>
+	        <li><a href="kakaomap://route?ep=33.4996,126.5452&by=CAR" class="kakaomap">카카오맵</a></li>
+	    </ul>
+	</div>
   </div>
 </section>
 
