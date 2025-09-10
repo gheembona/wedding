@@ -13,9 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <!-- 카카오맵 JS SDK -->
-  <script type="text/javascript"
-  src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=67f0b37dbb6dace657c0757e578ee937"
-  onload="displayMap('mapDiv', 33.4996, 126.5452, '아라캐슬웨딩홀')">
+  <script type="text/javascript"  src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=67f0b37dbb6dace657c0757e578ee937">
 </script>
 
   <script>
@@ -299,30 +297,28 @@
 
   <script>
     //썸네일
-// 모달 Swiper
-let modalSwiper;
+    function openModal(index) {
+  const modal = document.getElementById("photoModal");
+  modal.style.display = "block";
 
-function openModal(index) {
-  document.getElementById("photoModal").style.display = "block";
-
-  // Swiper 초기화 (스와이프 전용, 버튼 없음)
   modalSwiper = new Swiper(".modal-swiper", {
     initialSlide: index,
     loop: true,
-    spaceBetween: 20,
-    centeredSlides: true,
-    allowTouchMove: true,   // 터치 스와이프 허용
-    navigation: false,      // 버튼 제거
+    allowTouchMove: true,
+    navigation: false, // 버튼 삭제
+  });
+
+  modal.addEventListener("click", function(e) {
+    if (e.target === modal) {
+      closeModal();
+    }
   });
 }
 
 function closeModal() {
   document.getElementById("photoModal").style.display = "none";
-  if (modalSwiper) {
-    modalSwiper.destroy();
-  }
+  if (modalSwiper) modalSwiper.destroy();
 }
-
 
   </script>
   <script>
@@ -384,7 +380,7 @@ function closeModal() {
 <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script>
   // 카카오 SDK 초기화 (발급받은 JavaScript 키 넣기!)
-  Kakao.init('여기에_카카오_JAVASCRIPT_KEY'); 
+  Kakao.init('67f0b37dbb6dace657c0757e578ee937'); 
 
   function shareKakao() {
     Kakao.Link.sendDefault({
