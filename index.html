@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>우리의 결혼식</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+<body>
+
+  <!-- 메인 커버 섹션 -->
+  <section class="cover">
+    <img src="images/cover.jpg" alt="커버 이미지">
+    <h1>OO & OO의 결혼식</h1>
+    <p>2025년 9월 27일 (토) 오전 11시<br>아라캐슬 2층 공작실</p>
+  </section>
+
+  <!-- 인사말 섹션 -->
+  <section class="greeting">
+    <p>저희 두 사람이 새로운 시작을 함께하려 합니다.<br>
+       귀한 걸음 하시어 축복해 주시면 감사하겠습니다.</p>
+  </section>
+
+  <!-- 갤러리 섹션 -->
+  <section class="gallery">
+    <h2>우리의 추억</h2>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/photo1.jpg" alt="사진1"></div>
+        <div class="swiper-slide"><img src="images/photo2.jpg" alt="사진2"></div>
+        <div class="swiper-slide"><img src="images/photo3.jpg" alt="사진3"></div>
+      </div>
+      <!-- 이전/다음 버튼 -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+
+  <!-- 오시는 길 섹션 -->
+  <section class="location">
+    <h2>오시는 길</h2>
+    <p>아라캐슬웨딩홀 2층 공작실<br>제주 제주시 중앙로 504</p>
+    <iframe src="https://map.kakao.com/link/map/아라캐슬웨딩홀,33.5097711,126.5278662" 
+            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
+    </iframe>
+  </section>
+
+  <!-- 축의금 송금 섹션 -->
+  <section class="gift">
+    <h2>축하의 마음 전하기</h2>
+    <p>축의금을 마음으로 전해주실 분들을 위해 간편 송금 링크를 준비했습니다.</p>
+    <div class="gift-buttons">
+      <!-- 카카오페이 간편 송금 -->
+      <a href="https://qr.kakaopay.com/XXXXXX" target="_blank">
+        <button>💛 신랑측 카카오 송금</button>
+      </a>
+      <a href="https://qr.kakaopay.com/YYYYYY" target="_blank">
+        <button>💛 신부측 카카오 송금</button>
+      </a>
+      <!-- 일반 계좌번호 -->
+      <button onclick="alert('신랑측 계좌\n국민은행 123456-78-901234\n예금주: 홍길동')">🏦 신랑측 계좌번호</button>
+      <button onclick="alert('신부측 계좌\n신한은행 987654-32-109876\n예금주: 김영희')">🏦 신부측 계좌번호</button>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    new Swiper('.swiper', {
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+</body>
+</html>
