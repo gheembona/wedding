@@ -3,182 +3,383 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>우리의 결혼식</title>
+  <title>TEST</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 
   <!-- 카카오맵 JS SDK -->
-<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=67f0b37dbb6dace657c0757e578ee937"></script>
+  <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=67f0b37dbb6dace657c0757e578ee937"></script>
+  <script>
+    function displayMap(locationCd, posX, posY, fairName) {
+      var container = document.getElementById(locationCd);
+      var options = { 
+        center : new kakao.maps.LatLng(posX, posY), 
+        level : 3
+      };
+      var map = new kakao.maps.Map(container, options);
 
-<script>
-  function displayMap(locationCd, posX, posY, fairName) {
-    var container = document.getElementById(locationCd);
-    var options = { 
-      center : new kakao.maps.LatLng(posX, posY), 
-      level : 3
+      var imgUrl = 'https://t1.daumcdn.net/localimg/localimages/07/2018/pc/map/marker_map01.png';
+      var imgSize = new kakao.maps.Size(37, 41);
+      var markerImage = new kakao.maps.MarkerImage(imgUrl, imgSize);
+      var markerPosition = new kakao.maps.LatLng(posX, posY); 
+
+      var marker = new kakao.maps.Marker({ 
+        position : markerPosition,
+        image : markerImage
+      });
+      marker.setMap(map);
+
+      var overlayContent = '<div class="customoverlay">'
+        + '<a target="_blank" href="https://map.kakao.com/link/map/'+ fairName +','+posX+','+posY+'">'
+        + '<span class="title">' + fairName + '</span></a>'
+        + '</div>';
+
+      var overlayPosition = new kakao.maps.LatLng(posX, posY);
+      var customOverlay = new kakao.maps.CustomOverlay({
+        map : map,
+        position : overlayPosition,
+        content : overlayContent,
+        yAnchor : 1
+      });
+    }
+
+    window.onload = function() {
+      displayMap('map', 33.4996, 126.5452, '아라캐슬웨딩홀'); 
     };
-    var map = new kakao.maps.Map(container, options);
+  </script>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- 메인 커버 -->
+    <section class="cover">
+      <img src="images/cover.jpg" alt="커버 이미지">
+      <h1>서동현 | 김보미</h1>
+      <p>2025. 9. 27. SAT AM 11:00<br>아라캐슬 2층 공작실</p>
+    </section>
 
-    var imgUrl = 'https://t1.daumcdn.net/localimg/localimages/07/2018/pc/map/marker_map01.png';
-    var imgSize = new kakao.maps.Size(37, 41);
-    var markerImage = new kakao.maps.MarkerImage(imgUrl, imgSize);
-    var markerPosition = new kakao.maps.LatLng(posX, posY); 
+    <!-- 인사말 -->
+    <section class="greeting">
+      <h3>OUR<br>WEDDING</h3>
+      <p>
+        서로가 마주보며 다져온 사랑을<br>
+        이제 함께 한 곳을 바라보며<br>
+        걸어갈 수 있는 큰 사랑으로 키우고자 합니다.<br>
+        저희 두 사람이 사랑의 이름으로<br>
+        지켜나갈 수 있게 앞날을<br>
+        축복해 주시면 감사하겠습니다.
+      </p>
+    </section>
 
-    var marker = new kakao.maps.Marker({ 
-      position : markerPosition,
-      image : markerImage
+    <!-- 달력 -->
+    <section class="calendar">
+      <!-- <h2>결혼식 날짜</h2> -->
+      <div class="calendar-date">
+        <p>11</p>
+        <p>30</p>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>S</th><th>M</th><th>T</th><th>W</th>
+            <th>T</th><th>F</th><th>S</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span></span></td>
+            <td><span>1</span></td>
+            <td><span>2</span></td>
+            <td><span>3</span></td>
+            <td><span>4</span></td>
+            <td><span>5</span></td>
+            <td><span>6</span></td>
+            </tr>
+            <tr>
+            <td><span>7</span></td>
+            <td><span>8</span></td>
+            <td><span>9</span></td>
+            <td><span>10</span></td>
+            <td><span>11</span></td>
+            <td><span>12</span></td>
+            <td><span>13</span></td>
+            </tr>
+            <tr>
+            <td><span>14</span></td>
+            <td><span>15</span></td>
+            <td><span>16</span></td>
+            <td><span>17</span></td>
+            <td><span>18</span></td>
+            <td><span>19</span></td>
+            <td><span>20</span></td>
+            </tr>
+            <tr>
+            <td><span>21</span></td>
+            <td><span>22</span></td>
+            <td><span>23</span></td>
+            <td><span>24</span></td>
+            <td><span>25</span></td>
+            <td><span>26</span></td>
+            <td class="highlight"><span>27</span></td>
+            </tr>
+            <tr>
+            <td><span>28</span></td>
+            <td><span>29</span></td>
+            <td><span>30</span></td>
+            <td><span></span></td>
+            <td><span></span></td>
+            <td><span></span></td>
+            <td><span></span></td>
+            </tr>
+        </tbody>
+      </table>
+
+      <div class="preparty">
+        <h2>앞잔치 안내</h2>
+        <p>
+          저희 결혼식을 앞두고<br>
+          먼 길 오시기 어려운 분들을 위해<br>
+          제주에서 앞잔치를 마련하였습니다.
+        </p>
+        <p>
+          소중한 분들과 미리 인사를 나누고자 하오니<br>
+          부디 편히 오셔서 함께 축복해 주시면<br>
+          감사하겠습니다.
+        </p>
+        <div class="preparty-info">
+          <p><strong>일시</strong> 2025년 9월 27일 (토) 오전 11시</p>
+          <p><strong>장소</strong> 제주 아라캐슬 2층 공작실</p>
+          <p><strong>주차</strong> 무료 이용 가능</p>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <!-- 갤러리 -->
+    <section class="gallery">
+      <h2>GALLERY</h2>
+
+      <div class="gallery-grid">
+        <img src="images/photo1.jpg" alt="사진1" onclick="openModal(0)">
+        <img src="images/photo2.jpg" alt="사진2" onclick="openModal(1)">
+        <img src="images/photo3.jpg" alt="사진3" onclick="openModal(2)">
+        <img src="images/photo4.jpg" alt="사진4" onclick="openModal(3)">
+        <img src="images/photo5.jpg" alt="사진5" onclick="openModal(4)">
+        <img src="images/photo6.jpg" alt="사진6" onclick="openModal(5)">
+        <img src="images/photo7.jpg" alt="사진7" onclick="openModal(6)">
+        <img src="images/photo8.jpg" alt="사진8" onclick="openModal(7)">
+        <img src="images/photo9.jpg" alt="사진9" onclick="openModal(8)">
+        <img src="images/photo10.jpg" alt="사진10" onclick="openModal(9)">
+        <img src="images/photo11.jpg" alt="사진11" onclick="openModal(10)">
+        <img src="images/photo12.jpg" alt="사진12" onclick="openModal(11)">
+      </div>
+    </section>
+
+    <!-- 모달 -->
+    <div id="imageModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImg">
+      <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+      <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    </section>
+
+    <!-- 오시는 길 -->
+    <section class="location">
+      <h2>오시는 길</h2>
+      <p>아라캐슬 2층 공작실<br>제주 제주시 중앙로 504 아라캐슬웨딩홀</p>
+
+      <div id="map"></div>
+
+      <div class="nav-buttons">
+        <div class="link">
+          <ul>
+            <li><a href="tmap://route?goalx=126.5452&goaly=33.4996&goalname=아라캐슬웨딩홀" class="tmap">티맵</a></li>
+            <li><a href="kakaonavi://navigate?name=아라캐슬웨딩홀&x=126.5452&y=33.4996&coord_type=wgs84" class="kakaonavi">카카오내비</a></li>
+            <li><a href="nmap://route/car?dlat=33.4996&dlng=126.5452&dname=아라캐슬웨딩홀"class="navermap">네이버지도</a></li>
+            <li><a href="kakaomap://route?ep=33.4996,126.5452&by=CAR" class="kakaomap">카카오맵</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- <div class="traffic-info">
+        <h3>버스로 오시는 길</h3>
+        <p>제주시청 방면 → 중앙로 버스 정류장에서 하차 후 도보 3분</p>
+
+        <h3>자가용으로 오시는 길</h3>
+        <p>
+          - 제주국제공항 출발: 약 20분 소요 (중앙로 방면 직진)<br>
+          - 제주시청 출발: 약 10분 소요 (중앙로 따라 동문 방면)<br>
+          - 동부(조천·구좌) 출발: 동부산업도로 이용 후 중앙로 진입
+        </p>
+
+        <h3>주차 안내</h3>
+        <p>아라캐슬웨딩홀 전용 주차장 무료 이용 가능</p>
+      </div> -->
+    </section>
+    <!-- 앞잔치 안내 섹션 -->
+    
+
+    <!-- 축의금 송금 섹션 -->
+    <section class="gift">
+      <h2>축하의 마음 전하기</h2>
+      <div class="gift-buttons">
+        <button onclick="openGiftModal('groom')">신랑측 마음 전하기</button>
+        <button onclick="openGiftModal('bride')">신부측 마음 전하기</button>
+      </div>
+    </section>
+
+    <!-- 모달 -->
+    <div id="giftModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeGiftModal()">&times;</span>
+        <h3 id="giftTitle"></h3>
+        <div id="giftAccounts"></div>
+      </div>
+    </div>
+
+
+  </div>
+<!-- footer -->
+<footer class="footer">
+
+  <div class="share-buttons">
+    <button type="button" onclick="shareKakao()"><img src="images/kakao-talk-fill.png"/> 카카오톡 공유</button>
+    <button type="button" onclick="copyLink()"><img src="images/links-line.png"/> 링크 복사</button>
+  </div>
+</footer>
+
+  <script>
+    const images = [
+      "images/photo1.jpg","images/photo2.jpg","images/photo3.jpg","images/photo4.jpg",
+      "images/photo5.jpg","images/photo6.jpg","images/photo7.jpg","images/photo8.jpg",
+      "images/photo9.jpg","images/photo10.jpg","images/photo11.jpg","images/photo12.jpg"
+    ];
+    let currentIndex = 0;
+  
+    function openModal(index) {
+      currentIndex = index;
+      document.getElementById("imageModal").style.display = "block";
+      document.getElementById("modalImg").src = images[currentIndex];
+    }
+  
+    function closeModal() {
+      document.getElementById("imageModal").style.display = "none";
+    }
+  
+    function changeSlide(step) {
+      currentIndex += step;
+      if (currentIndex < 0) currentIndex = images.length - 1;
+      if (currentIndex >= images.length) currentIndex = 0;
+      document.getElementById("modalImg").src = images[currentIndex];
+    }
+  
+    // 키보드 ← → 닫기 지원
+    document.addEventListener("keydown", function(e) {
+      if (document.getElementById("imageModal").style.display === "block") {
+        if (e.key === "ArrowLeft") changeSlide(-1);
+        if (e.key === "ArrowRight") changeSlide(1);
+        if (e.key === "Escape") closeModal();
+      }
     });
-    marker.setMap(map);
+  </script>
+  <script>
+    const accounts = {
+      groom: {
+        title: "신랑측 마음 전하기",
+        list: [
+          { name: "신랑 본인", bank: "국민은행", num: "123456-78-901234", owner: "서동현", pay: "https://qr.kakaopay.com/XXXXXX" },
+          { name: "신랑 아버지", bank: "농협", num: "111-22-333333", owner: "홍아버지" },
+          { name: "신랑 어머니", bank: "신한은행", num: "444-55-666666", owner: "홍어머니" }
+        ]
+      },
+      bride: {
+        title: "신부측 마음 전하기",
+        list: [
+          { name: "신부 본인", bank: "신한은행", num: "987654-32-109876", owner: "김보미", pay: "https://qr.kakaopay.com/YYYYYY" },
+          { name: "신부 어머니", bank: "우리은행", num: "555-66-777777", owner: "양정애" }
+        ]
+      }
+    };
+  
+    function openGiftModal(side) {
+      const modal = document.getElementById("giftModal");
+      const title = document.getElementById("giftTitle");
+      const container = document.getElementById("giftAccounts");
+  
+      const data = accounts[side];
+      title.textContent = data.title;
+  
+      container.innerHTML = data.list.map(acc => `
+        <div class="account">
+          <p><strong>${acc.name}</strong></p>
+          <p>${acc.bank} ${acc.num}</p>
+          <p>예금주: ${acc.owner}</p>
+          <button onclick="copyAccount('${acc.num}')">복사하기</button>
+          ${acc.pay ? `<a href="${acc.pay}" target="_blank"><button>카카오 송금</button></a>` : ""}
+        </div>
+      `).join("");
+  
+      modal.style.display = "flex";
+    }
+  
+    function closeGiftModal() {
+      document.getElementById("giftModal").style.display = "none";
+    }
+  
+    function copyAccount(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("계좌번호가 복사되었습니다: " + text);
+      });
+    }
+  
+    // ESC 닫기
+    document.addEventListener("keydown", function(e) {
+      if (e.key === "Escape") closeGiftModal();
+    });
+  </script>
+  <!-- 카카오 SDK -->
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script>
+  // 카카오 SDK 초기화 (발급받은 JavaScript 키 넣기!)
+  Kakao.init('여기에_카카오_JAVASCRIPT_KEY'); 
 
-    // 간단한 커스텀 오버레이
-    var overlayContent = '<div class="customoverlay">'
-      + '<a target="_blank" href="https://map.kakao.com/link/map/'+ fairName +','+posX+','+posY+'">'
-      + '<span class="title">' + fairName + '</span></a>'
-      + '</div>';
-
-    var overlayPosition = new kakao.maps.LatLng(posX, posY);
-    var customOverlay = new kakao.maps.CustomOverlay({
-      map : map,
-      position : overlayPosition,
-      content : overlayContent,
-      yAnchor : 1
+  function shareKakao() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '우리의 결혼식에 초대합니다 💍',
+        description: '2025.09.27 | 아라캐슬웨딩홀',
+        imageUrl: window.location.origin + '/images/cover.jpg', // 대표 이미지
+        link: {
+          mobileWebUrl: window.location.href,
+          webUrl: window.location.href
+        }
+      },
+      buttons: [
+        {
+          title: '청첩장 보기',
+          link: {
+            mobileWebUrl: window.location.href,
+            webUrl: window.location.href
+          }
+        }
+      ]
     });
   }
 
-  // 오시는 길
- window.onload = function() {
-    displayMap('map', 33.4996, 126.5452, '아라캐슬웨딩홀'); 
-  };
-</script>
-
-
-</script>
-</head>
-<body>
-
-  <!-- 메인 커버 섹션 -->
-  <section class="cover">
-    <img src="images/cover.jpg" alt="커버 이미지">
-    <h1>서동현 | 최지민</h1>
-    <p>2025. 9. 27. SAT AM 11:00<br>아라캐슬 2층 공작실</p>
-  </section>
-
-  <!-- 인사말 섹션 -->
-  <section class="greeting">
-    <h3>OUR<br>WEDDING</h3>
-    <p>
-      서로가 마주보며 다져온 사랑을<br>
-이제 함께 한 곳을 바라보며<br>
-걸어갈 수 있는 큰 사랑으로 키우고자 합니다.<br>
-저희 두 사람이 사랑의 이름으로<br>
-지켜나갈 수 있게 앞날을<br>
-축복해 주시면 감사하겠습니다.
-    </p>
-  </section>
-<section class="calendar">
-  <h2>결혼식 날짜</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>일</th><th>월</th><th>화</th><th>수</th>
-        <th>목</th><th>금</th><th>토</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
-      </tr>
-      <tr>
-        <td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
-      </tr>
-      <tr>
-        <td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
-      </tr>
-      <tr>
-        <td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
-        <td class="highlight">27</td>
-      </tr>
-      <tr>
-        <td>28</td><td>29</td><td>30</td><td></td><td></td><td></td><td></td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-  <!-- 갤러리 섹션 -->
-  <section class="gallery">
-    <h2>우리의 추억</h2>
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="images/photo1.jpg" alt="사진1"></div>
-        <div class="swiper-slide"><img src="images/photo2.jpg" alt="사진2"></div>
-        <div class="swiper-slide"><img src="images/photo3.jpg" alt="사진3"></div>
-      </div>
-      <!-- 이전/다음 버튼 -->
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
-  </section>
-
-  <!-- 오시는 길 섹션 -->
-  <section class="location">
-  <h2>오시는 길</h2>
-  <p>아라캐슬 2층 공작실<br>제주 제주시 중앙로 504 아라캐슬웨딩홀</p>
-
-  <!-- 카카오 지도 -->
-  <div id="map"></div>
-
-  <!-- 네비 버튼 -->
-  <div class="nav-buttons">
-    <div class="link" >
-	    <ul>
-	        <li><a href="tmap://route?goalx=126.5452&goaly=33.4996&goalname=아라캐슬웨딩홀" class="tmap">티맵</a></li>
-	        <li><a href="kakaonavi://navigate?name=아라캐슬웨딩홀&x=126.5452&y=33.4996&coord_type=wgs84" class="kakaonavi">카카오내비</a></li>
-	        <li><a href="nmap://route/car?dlat=33.4996&dlng=126.5452&dname=아라캐슬웨딩홀"class="navermap" >네이버지도</a></li>
-	        <li><a href="kakaomap://route?ep=33.4996,126.5452&by=CAR" class="kakaomap">카카오맵</a></li>
-	    </ul>
-	</div>
-  </div>
-</section>
-
-
-
-
-  <!-- 축의금 송금 섹션 -->
-  <section class="gift">
-    <h2>축하의 마음 전하기</h2>
-    <p>축의금을 마음으로 전해주실 분들을 위해 간편 송금 링크를 준비했습니다.</p>
-    <div class="gift-buttons">
-      <!-- 카카오페이 간편 송금 -->
-      <a href="https://qr.kakaopay.com/XXXXXX" target="_blank">
-        <button>💛 신랑측 카카오 송금</button>
-      </a>
-      <a href="https://qr.kakaopay.com/YYYYYY" target="_blank">
-        <button>💛 신부측 카카오 송금</button>
-      </a>
-      <!-- 일반 계좌번호 -->
-      <button onclick="alert('신랑측 계좌\n국민은행 123456-78-901234\n예금주: 홍길동')">🏦 신랑측 계좌번호</button>
-      <button onclick="alert('신부측 계좌\n신한은행 987654-32-109876\n예금주: 김영희')">🏦 신부측 계좌번호</button>
-    </div>
-  </section>
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-    new Swiper('.swiper', {
-      loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      alert("청첩장 링크가 복사되었습니다");
     });
-  </script>
+  }
+</script>
+
 </body>
 </html>

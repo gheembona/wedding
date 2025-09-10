@@ -3,17 +3,28 @@ body {
   margin: 0;
   color: #444;
 }
+
 section.greeting {
-    background: #fffae9;
+  background: #fffae9;
+  padding: 100px 20px;
 }
+
 section {
   padding: 40px 20px;
   text-align: center;
   margin: 20px auto;
   max-width: 600px;
-
 }
-
+section.cover {
+height: 100vh;                  /* 한 화면 꽉 채우기 */
+scroll-snap-align: start;       /* 시작 지점에서 스냅 */
+display: flex;
+flex-direction: column;
+justify-content: center;        /* 가운데 정렬 */
+align-items: center;
+padding: 40px 20px;
+box-sizing: border-box;
+}
 .cover {
   background: none;
   box-shadow: none;
@@ -30,9 +41,11 @@ section {
 
 .cover h1 {
   font-family: "Nanum Myeongjo", serif;
-  font-size: 32px;
-  /* color: #d4a373; */ /* 골드톤 */
-  margin: 20px 0 10px;
+  font-size: 26px;
+  
+  /* 골드톤 */
+  margin: 0;
+  font-weight: 500;
 }
 
 .cover p {
@@ -52,105 +65,411 @@ h2 {
   border-radius: 12px;
 }
 
-button {
-  padding: 12px 20px;
-  margin: 8px;
+.gift button {
+  padding: 15px 60px;
+  margin: 6px;
   font-size: 16px;
   border: none;
-  border-radius: 8px;
-  background: #d4a373; /* 골드톤 */
-  color: #fff;
+  border-radius: 30px;
+  background: #ffffff;
+  /* 골드톤 */
+  color: #555;
+  border: 1px solid #ccc;
   cursor: pointer;
   transition: background 0.3s;
+  /* width: 80%; */
+  font-weight: 600;
 }
 
-button:hover {
-  background: #b88550;
+.gift button:hover {
+  
 }
+
 .calendar {
   margin-top: 40px;
 }
 
 .calendar table {
-  width: 100%;
+  width: 90%;
   border-collapse: collapse;
   text-align: center;
   font-family: 'Noto Sans KR', sans-serif;
   background: #fff;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   overflow: hidden;
+  margin: auto;
 }
 
 .calendar th {
-  background: #f4eadd;
+  /* background: #f4eadd; */
   color: #444;
-  padding: 8px;
+  padding: 8px 0px;
+  font-size: 13px;
 }
 
 .calendar td {
-  padding: 12px;
-  border: 1px solid #eee;
+  padding: 12px 0px;
+  /* border: 1px solid #eee; */
+  font-size: 14px;
+  position: relative;
 }
 
-.calendar .highlight {
-  background: #d4a373;
-  color: #fff;
-  font-weight: bold;
+.calendar .highlight::before {
+  content: "";
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+  display: block;
+  position: absolute;
+  /* border: 3px solid #FF5722; */
+  background: #ffcdd282;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
 }
+
 #map {
   width: 100%;
   height: 250px;
-  border-radius: 12px;
+  border-radius: 20px;
   margin: 20px 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  /* box-shadow: 0 2px 6px rgba(0,0,0,0.1); */
 }
-.location-section .link{
-	padding:1.250rem 0 0.938rem;
-	background:#fafafa;
-	font-size: 0;
-	line-height:0;
-	text-align: center;
+
+.location .link {
+  /* padding: 1rem; */
+  /* background:#fafafa; */
+  /* font-size: 0; */
+  /* line-height:0; */
+  /* display: flex; */
+  /* justify-content: space-between; */
 }
-.location-section .link li{
-	display:inline-block;
-	vertical-align:top;
-	width:3.750rem;
-	padding:0 0.625rem;
-	box-sizing:content-box;
+
+.location .link li {
+  /* display:inline-block; */
+  /* vertical-align:top; */
+  width: 3.750rem;
+  padding: 0 0.625rem;
+  /* box-sizing:content-box; */
+  list-style: none;
 }
-.location-section .link a{
-	position:relative;
-	display:block;
-	padding-top:3.438rem;
-	font-family:"Noto Sans KR";
-	font-size:0.688rem;
-	font-weight:400;
-	line-height:1rem;
-	color:#111;
-	text-decoration:none;
+
+.location .link a {
+  position: relative;
+  display: block;
+  padding-top: 3.438rem;
+  font-family: "Noto Sans KR";
+  font-size: 0.688rem;
+  font-weight: 400;
+  line-height: 1rem;
+  color: #111;
+  text-decoration: none;
 }
-.location-section .link a:after{
-	content:'';
-	display:block;
-	position: absolute;
-	left: 50%; top: 0;
-	margin-left:-1.563rem; 
-	width:3.125rem;
-	height:3.125rem;
-	background-position:0 0;
-	background-repeat:no-repeat;
-	background-size:3.125rem;
+
+.location .link a:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -1.563rem;
+  width: 3.125rem;
+  height: 3.125rem;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 3.125rem;
 }
-.location-section .link .tmap:after{
-	background-image: url("/images/location_tmap2.png");
+
+.location .link .tmap:after {
+  background-image: url("./images/location_tmap2.png");
 }
-.location-section .link .kakaonavi:after{
-	background-image: url("/images/location_kakaonavi.png");
+
+.location .link .kakaonavi:after {
+  background-image: url("./images/location_kakaonavi.png");
 }
-.location-section .link .navermap:after{
-	background-image: url("/images/location_navermap.png");
+
+.location .link .navermap:after {
+  background-image: url("./images/location_navermap.png");
 }
-.location-section .link .kakaomap:after{
-	background-image: url("/images/location_kakaomap.png");
+
+.location .link .kakaomap:after {
+  background-image: url("./images/location_kakaomap.png");
+}
+
+.location .link > ul {
+  width: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+section.greeting > h3 {font-size: 24px;line-height: 32px;margin-top: 0;}
+
+section.greeting > p {
+  line-height: 30px;
+}
+
+section.cover > img {
+  margin-bottom: 40px;
+}
+.traffic-info {
+  text-align: left;
+}
+.preparty {
+  background: #fdf8f3; /* 은은한 아이보리톤 */
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.preparty h2 {
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 22px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.preparty p {
+  margin: 8px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.preparty-info {
+  margin-top: 16px;
+  font-size: 15px;
+  color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 썸네일 */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* 모달 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 8px;
+  margin-top: 60px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 좌우 화살표 */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 32px;
+  user-select: none;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+
+
+
+
+
+
+
+
+
+
+/* 모달 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal-content h3 {
+  margin-bottom: 20px;
+  font-family: "Nanum Myeongjo", serif;
+}
+
+.account {
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.account p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.account button {
+  margin: 5px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #d4a373;
+  color: #fff;
+}
+
+.account button:hover {
+  background: #b88550;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+.preparty-info > p > strong {
+  display: block;
+  margin-top: 20px;
+}
+
+.customoverlay {
+  display: none;
+}
+
+.share-buttons > button {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  justify-content: center;
+  background: transparent;
+  margin: 0;
+  padding: 20px;
+  position: relative;
+  color: #FFF;
+  font-size: 15px;
+  border: 0;
+}
+.share-buttons > button > img {
+  margin-right: 10px
+}
+.share-buttons {
+  display: flex;
+  justify-content: space-around;
+  background: #666;
+}
+
+.share-buttons > button::after {
+  content: "";
+  width: 1px;
+  height: 20px;
+  display: block;
+  background: #FFF;
+  opacity: 0.5;
+  position: absolute;
+  right: 0;
+}
+
+.share-buttons > button:last-child::after{display:none}
+.calendar td > span {
+  position: sticky;
+  z-index: 1;
+}
+
+td.highlight > span {
+  font-weight: bold;
+}
+
+.calendar-date > p {
+  font-size: 25px;
+  line-height: 32px;
+  margin: 0;
+}
+
+.calendar-date > p {
+  font-size: 25px;
+  height: 44px;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-family: "Nanum Myeongjo", serif;
+}
+
+.calendar-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-date > p:first-child {
+  border-bottom: 2px solid #777;
 }
