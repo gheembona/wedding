@@ -13,47 +13,9 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <!-- 카카오맵 JS SDK -->
-  <script type="text/javascript"  src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=67f0b37dbb6dace657c0757e578ee937">
-</script>
+  <script type="text/javascript"  src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=67f0b37dbb6dace657c0757e578ee937"></script>
 
-  <script>
-    function displayMap(locationCd, posX, posY, fairName) {
-      var container = document.getElementById(locationCd);
-      var options = { 
-        center : new kakao.maps.LatLng(posX, posY), 
-        level : 3
-      };
-      var map = new kakao.maps.Map(container, options);
-
-      var imgUrl = 'https://t1.daumcdn.net/localimg/localimages/07/2018/pc/map/marker_map01.png';
-      var imgSize = new kakao.maps.Size(37, 41);
-      var markerImage = new kakao.maps.MarkerImage(imgUrl, imgSize);
-      var markerPosition = new kakao.maps.LatLng(posX, posY); 
-
-      var marker = new kakao.maps.Marker({ 
-        position : markerPosition,
-        image : markerImage
-      });
-      marker.setMap(map);
-
-      var overlayContent = '<div class="customoverlay">'
-        + '<a target="_blank" href="https://map.kakao.com/link/map/'+ fairName +','+posX+','+posY+'">'
-        + '<span class="title">' + fairName + '</span></a>'
-        + '</div>';
-
-      var overlayPosition = new kakao.maps.LatLng(posX, posY);
-      var customOverlay = new kakao.maps.CustomOverlay({
-        map : map,
-        position : overlayPosition,
-        content : overlayContent,
-        yAnchor : 1
-      });
-    }
-
-    window.onload = function() {
-      displayMap('mapDiv', 33.4996, 126.5452, '아라캐슬웨딩홀'); 
-    };
-  </script>
+  
   <!-- 배경 음악 -->
 <audio id="bgm" autoplay loop muted>
   <source src="music/wedding.mp3" type="audio/mpeg">
@@ -376,36 +338,44 @@ function closeModal() {
       if (e.key === "Escape") closeGiftModal();
     });
   </script>
-  <!-- 카카오 SDK -->
-<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-<script>
-  // 카카오 SDK 초기화 (발급받은 JavaScript 키 넣기!)
-  Kakao.init('67f0b37dbb6dace657c0757e578ee937'); 
 
-  function shareKakao() {
-    Kakao.Link.sendDefault({
-      objectType: 'feed',
-      content: {
-        title: '우리의 결혼식에 초대합니다 💍',
-        description: '2025.09.27 | 아라캐슬웨딩홀',
-        imageUrl: window.location.origin + '/images/cover.jpg', // 대표 이미지
-        link: {
-          mobileWebUrl: window.location.href,
-          webUrl: window.location.href
-        }
-      },
-      buttons: [
-        {
-          title: '청첩장 보기',
-          link: {
-            mobileWebUrl: window.location.href,
-            webUrl: window.location.href
-          }
-        }
-      ]
+<script>
+  function displayMap(locationCd, posX, posY, fairName) {
+    var container = document.getElementById(locationCd);
+    var options = { 
+      center : new kakao.maps.LatLng(posX, posY), 
+      level : 3
+    };
+    var map = new kakao.maps.Map(container, options);
+
+    var imgUrl = 'https://t1.daumcdn.net/localimg/localimages/07/2018/pc/map/marker_map01.png';
+    var imgSize = new kakao.maps.Size(37, 41);
+    var markerImage = new kakao.maps.MarkerImage(imgUrl, imgSize);
+    var markerPosition = new kakao.maps.LatLng(posX, posY); 
+
+    var marker = new kakao.maps.Marker({ 
+      position : markerPosition,
+      image : markerImage
+    });
+    marker.setMap(map);
+
+    var overlayContent = '<div class="customoverlay">'
+      + '<a target="_blank" href="https://map.kakao.com/link/map/'+ fairName +','+posX+','+posY+'">'
+      + '<span class="title">' + fairName + '</span></a>'
+      + '</div>';
+
+    var overlayPosition = new kakao.maps.LatLng(posX, posY);
+    var customOverlay = new kakao.maps.CustomOverlay({
+      map : map,
+      position : overlayPosition,
+      content : overlayContent,
+      yAnchor : 1
     });
   }
 
+  window.onload = function() {
+    displayMap('mapDiv', 33.4996, 126.5452, '아라캐슬웨딩홀'); 
+  };
   function copyLink() {
     navigator.clipboard.writeText(window.location.href).then(() => {
       alert("청첩장 링크가 복사되었습니다");
@@ -413,5 +383,38 @@ function closeModal() {
   }
 </script>
 
+  <!-- 카카오 SDK -->
+  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <script>
+    // 카카오 SDK 초기화 (발급받은 JavaScript 키 넣기!)
+    Kakao.init('67f0b37dbb6dace657c0757e578ee937'); 
+  
+    function shareKakao() {
+      Kakao.Link.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: '우리의 결혼식에 초대합니다 💍',
+          description: '2025.09.27 | 아라캐슬웨딩홀',
+          imageUrl: window.location.origin + '/images/cover.jpg', // 대표 이미지
+          link: {
+            mobileWebUrl: window.location.href,
+            webUrl: window.location.href
+          }
+        },
+        buttons: [
+          {
+            title: '청첩장 보기',
+            link: {
+              mobileWebUrl: window.location.href,
+              webUrl: window.location.href
+            }
+          }
+        ]
+      });
+    }
+  
+  
+  </script>
+  
 </body>
 </html>
