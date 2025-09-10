@@ -67,3 +67,34 @@ button {
 button:hover {
   background: #b88550;
 }
+.calendar {
+  margin-top: 40px;
+}
+
+.calendar table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.calendar th {
+  background: #f4eadd;
+  color: #444;
+  padding: 8px;
+}
+
+.calendar td {
+  padding: 12px;
+  border: 1px solid #eee;
+}
+
+.calendar .highlight {
+  background: #d4a373;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50%;
+}
