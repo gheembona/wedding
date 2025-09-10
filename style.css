@@ -132,6 +132,7 @@ h2 {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 0;
+  animation: circle 2s ease-in-out infinite;
 }
 
 #mapDiv {
@@ -314,6 +315,14 @@ section.cover > img {
 }
 
 
+.swiper-slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 100vh !important;
+}
+
+
 
 
 
@@ -469,4 +478,12 @@ td.highlight > span {
 
 .calendar-date > p:first-child {
   border-bottom: 2px solid #777;
+}
+
+@keyframes circle {
+	0% {transform: translate(-50%, -50%) scale(1.2);}
+	25% {transform: translate(-50%, -50%)  scale(1.3);}
+	50% {transform: translate(-50%, -50%) scale(1.2);}
+	75% {transform: translate(-50%, -50%)  scale(1.3);}
+	100% {transform: translate(-50%, -50%) scale(1.2);}
 }
