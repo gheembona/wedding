@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>TEST</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <!-- 카카오맵 JS SDK -->
   <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=67f0b37dbb6dace657c0757e578ee937"></script>
@@ -164,31 +165,28 @@
     <section class="gallery">
       <h2>GALLERY</h2>
 
-      <div class="gallery-grid">
+      <div class="thumbnail-grid">
         <img src="images/photo1.jpg" alt="사진1" onclick="openModal(0)">
         <img src="images/photo2.jpg" alt="사진2" onclick="openModal(1)">
         <img src="images/photo3.jpg" alt="사진3" onclick="openModal(2)">
         <img src="images/photo4.jpg" alt="사진4" onclick="openModal(3)">
-        <img src="images/photo5.jpg" alt="사진5" onclick="openModal(4)">
-        <img src="images/photo6.jpg" alt="사진6" onclick="openModal(5)">
-        <img src="images/photo7.jpg" alt="사진7" onclick="openModal(6)">
-        <img src="images/photo8.jpg" alt="사진8" onclick="openModal(7)">
-        <img src="images/photo9.jpg" alt="사진9" onclick="openModal(8)">
-        <img src="images/photo10.jpg" alt="사진10" onclick="openModal(9)">
-        <img src="images/photo11.jpg" alt="사진11" onclick="openModal(10)">
-        <img src="images/photo12.jpg" alt="사진12" onclick="openModal(11)">
       </div>
     </section>
 
     <!-- 모달 -->
-    <div id="imageModal" class="modal">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <img class="modal-content" id="modalImg">
-      <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-      <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    <div id="photoModal" class="modal">
+      <span class="close" onclick="closeModal()">✕</span>
+      <div class="swiper modal-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="images/photo1.jpg"></div>
+          <div class="swiper-slide"><img src="images/photo2.jpg"></div>
+          <div class="swiper-slide"><img src="images/photo3.jpg"></div>
+          <div class="swiper-slide"><img src="images/photo4.jpg"></div>
+        </div>
+      </div>
     </div>
 
-    </section>
+
 
     <!-- 오시는 길 -->
     <section class="location">
@@ -256,38 +254,32 @@
 </footer>
 
   <script>
-    const images = [
-      "images/photo1.jpg","images/photo2.jpg","images/photo3.jpg","images/photo4.jpg",
-      "images/photo5.jpg","images/photo6.jpg","images/photo7.jpg","images/photo8.jpg",
-      "images/photo9.jpg","images/photo10.jpg","images/photo11.jpg","images/photo12.jpg"
-    ];
-    let currentIndex = 0;
-  
-    function openModal(index) {
-      currentIndex = index;
-      document.getElementById("imageModal").style.display = "block";
-      document.getElementById("modalImg").src = images[currentIndex];
-    }
-  
-    function closeModal() {
-      document.getElementById("imageModal").style.display = "none";
-    }
-  
-    function changeSlide(step) {
-      currentIndex += step;
-      if (currentIndex < 0) currentIndex = images.length - 1;
-      if (currentIndex >= images.length) currentIndex = 0;
-      document.getElementById("modalImg").src = images[currentIndex];
-    }
-  
-    // 키보드 ← → 닫기 지원
-    document.addEventListener("keydown", function(e) {
-      if (document.getElementById("imageModal").style.display === "block") {
-        if (e.key === "ArrowLeft") changeSlide(-1);
-        if (e.key === "ArrowRight") changeSlide(1);
-        if (e.key === "Escape") closeModal();
-      }
-    });
+    //썸네일
+// 모달 Swiper
+let modalSwiper;
+
+function openModal(index) {
+  document.getElementById("photoModal").style.display = "block";
+
+  // Swiper 초기화 (스와이프 전용, 버튼 없음)
+  modalSwiper = new Swiper(".modal-swiper", {
+    initialSlide: index,
+    loop: true,
+    spaceBetween: 20,
+    centeredSlides: true,
+    allowTouchMove: true,   // 터치 스와이프 허용
+    navigation: false,      // 버튼 제거
+  });
+}
+
+function closeModal() {
+  document.getElementById("photoModal").style.display = "none";
+  if (modalSwiper) {
+    modalSwiper.destroy();
+  }
+}
+
+
   </script>
   <script>
     const accounts = {
