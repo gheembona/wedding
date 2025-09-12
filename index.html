@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>TEST</title>
+  <title>김보미♥서동현의 결혼식에 초대합니다💍</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
@@ -19,7 +19,7 @@
   <!-- 배경 음악 -->
 <audio id="bgm" autoplay loop muted>
   <source src="music/wedding.mp3" type="audio/mpeg">
-  브라우저가 audio 태그를 지원하지 않습니다.
+<!--   브라우저가 audio 태그를 지원하지 않습니다. -->
 </audio>
 
 <!-- 음악 제어 버튼 -->
@@ -63,8 +63,8 @@
     <!-- 메인 커버 -->
     <section class="cover">
       <img src="images/cover.jpg" alt="커버 이미지">
-      <h1>서동현 | 김보미</h1>
-      <p>2025. 9. 27. SAT AM 11:00<br>아라캐슬 2층 공작실</p>
+      <h1>김보미 | 서동현현</h1>
+      <p>2025. 11. 30. SUN </p>
     </section>
 
     <!-- 인사말 -->
@@ -289,8 +289,8 @@ function closeModal() {
         title: "신랑측 마음 전하기",
         list: [
           { name: "신랑 본인", bank: "국민은행", num: "123456-78-901234", owner: "서동현", pay: "https://qr.kakaopay.com/XXXXXX" },
-          { name: "신랑 아버지", bank: "농협", num: "111-22-333333", owner: "홍아버지" },
-          { name: "신랑 어머니", bank: "신한은행", num: "444-55-666666", owner: "홍어머니" }
+          { name: "신랑 아버지", bank: "농협", num: "111-22-333333", owner: "송하오" },
+          { name: "신랑 어머니", bank: "신한은행", num: "444-55-666666", owner: "오춘자" }
         ]
       },
       bride: {
@@ -375,7 +375,7 @@ function closeModal() {
   }
 
   window.onload = function() {
-    displayMap('mapDiv', 33.4996, 126.5452, '아라캐슬웨딩홀'); 
+    displayMap('mapDiv', 33.4996, 126.5452, '아라캐슬'); 
     toggleBgm();
   };
   function copyLink() {
@@ -395,8 +395,8 @@ function closeModal() {
       Kakao.Link.sendDefault({
         objectType: 'feed',
         content: {
-          title: '서동현♥김보미의 결혼식에 초대합니다💍',
-          description: '(앞잔치) 2025. 9. 27 SET | 아라캐슬웨딩홀',
+          title: '김보미♥서동현의 결혼식에 초대합니다💍',
+          description: '2025. 11. 30 SUN | 아라캐슬',
           imageUrl: window.location.origin + '/images/cover.jpg', // 대표 이미지
           link: {
             mobileWebUrl: window.location.href,
@@ -420,6 +420,7 @@ function closeModal() {
   
 </body>
 </html>
+
 
 
 
